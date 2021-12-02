@@ -7,9 +7,8 @@
   <a href="#sobre-o-projeto">Sobre o Projeto</a> |
   <a href="#tecnologias">Tecnologias</a> | 
   <a href="#pré-requisitos">Pré-Requisitos</a> |
-  <a href="#executando-a-aplicação">Executando a aplicação</a>  |     
-  <a href="#funções-do-sistema">Funções do Sistema</a>      
-</p> 
+  <a href="#executando-a-aplicação">Executando a aplicação</a>     
+ </p> 
 
 ## Sobre o Projeto
  O projeto consiste na criação de um sistema para realizar a autenticação e autorização dos usuários.
@@ -53,12 +52,25 @@
     ```bash
     cd auth-jwt
     ``` 
-3. 
+3. Acesse o diretorio do backend e execute e inicie o servidor
+     ```bash
+      cd backend 
+      yarn dev
+      ```
+4. Acesse o diretorio frontend e inicie o servidor
+      ```bash
+      cd frontend 
+      yarn dev
+      ```
+5. Acesse o projeto através da url: [**http://localhost:3000**](http://localhost:3000) 
 
-  6. Acesse o projeto através da url: [**http://localhost:3000**](http://localhost:3000) 
 
-## Funções do Sistema
-✔️ 
+## Rotas API
+ 🚧 Em Construção 🚧
+
+## Observações
+
+- Backend desenvolvido de forma static
  
 
  
