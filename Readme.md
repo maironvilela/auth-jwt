@@ -1,5 +1,3 @@
-:construction: Em Construção :construction:
-
 <h1 align="center">
      Autenticação com JWT    
  </h1>
@@ -7,7 +5,11 @@
   <a href="#sobre-o-projeto">Sobre o Projeto</a> |
   <a href="#tecnologias">Tecnologias</a> | 
   <a href="#pré-requisitos">Pré-Requisitos</a> |
-  <a href="#executando-a-aplicação">Executando a aplicação</a>     
+  <a href="#executando-a-aplicação">Executando a aplicação</a>   |
+  <a href="#rotas-api">Rotas API</a> |     
+  <a href="#observações">Observações</a> |     
+
+
  </p> 
  
 ## Sobre o Projeto
@@ -29,14 +31,19 @@
 
 ## Tecnologias
 
-[![Javascript](https://img.shields.io/badge/Code-Javascript-FFFF00?&logo=javascript&logoColor=FFFF00)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) 
+[![Javascript](https://img.shields.io/badge/Code-Javascript-FFFF00?&logo=javascript&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) 
 [![NextJS](https://img.shields.io/badge/Code-NextJS-000000?&logo=nextdotjs&logoColor=white)](https://nextjs.org)
-[![Typescript](https://img.shields.io/badge/Code-Typescript-1E90FF?&logo=typescript)](https://www.typescriptlang.org)
+[![Typescript](https://img.shields.io/badge/Code-Typescript-1E90FF?&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 
 [![Styled Components](https://img.shields.io/badge/Styles-Styled_Components-FF69B4?&logo=styled-components&logoColor=white)](https://styled-components.com/) 
+
+[![Swagger](https://img.shields.io/badge/Documentation-Swagger-green?&logo=Swagger&logoColor=white)](https://swagger.io) 
+
+ [![Express](https://img.shields.io/badge/Server-Express-000?&logo=express&logoColor=white)](https://expressjs.com/pt-br/) 
  
 [![Nookies](https://img.shields.io/badge/Nookies-v2.5.2-blue?&logo=gitbook&logoColor=white)](https://www.npmjs.com/package/nookies)
 [![Axios](https://img.shields.io/badge/Axios-v0.24.0-blue?&logo=gitbook&logoColor=white)](https://www.npmjs.com/package/axios) 
+
 ## Pré-Requisitos
 1. Instalação GIT
 2. Instalação NodeJS
@@ -67,9 +74,9 @@
 
 ## Rotas API
 
-### POST /sessions
+>#### POST /sessions
 
- > **Request**
+ **Request**
      
      {
         email: string
@@ -77,7 +84,7 @@
      }
     
      
-> **Response**
+**Response**
  
      {
        "token": string",
@@ -86,7 +93,7 @@
        "roles": string[]
      }
      
-### POST /refresh
+#### POST /refresh
 
 > **Request**
  
@@ -106,7 +113,7 @@
        "roles": string[]
      }
      
-### GET /me
+#### GET /me
 
  > **Request**
  
@@ -127,7 +134,7 @@ Para visualizar a documentação completa da API, após iniciar o servidor do Ba
 
 ## Observações
 
-- Backend desenvolvido de forma static
+- Backend desenvolvido de forma statica
  
 
  
