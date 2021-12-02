@@ -9,7 +9,7 @@
   <a href="#pré-requisitos">Pré-Requisitos</a> |
   <a href="#executando-a-aplicação">Executando a aplicação</a>     
  </p> 
-
+ 
 ## Sobre o Projeto
  O projeto consiste na criação de um sistema para realizar a autenticação e autorização dos usuários.
 
@@ -66,7 +66,64 @@
 
 
 ## Rotas API
- 🚧 Em Construção 🚧
+
+### POST /sessions
+
+ > **Request**
+     
+     {
+        email: string
+        password: string
+     }
+    
+     
+> **Response**
+ 
+     {
+       "token": string",
+       "refreshToken": "string",
+       "permissions": string[],
+       "roles": string[]
+     }
+     
+### POST /refresh
+
+> **Request**
+ 
+ *Obs: Necessário enviar o token no header da requisição*
+
+          
+     {
+        refreshToken: string         
+     }
+     
+ > **Response**
+ 
+     {
+       "token": string",
+       "refreshToken": "string",
+       "permissions": string[],
+       "roles": string[]
+     }
+     
+### GET /me
+
+ > **Request**
+ 
+ *Obs: Necessário enviar o token no header da requisição*         
+   
+     
+> **Response**
+ 
+     {
+       "email": string",
+       "permissions": string[],
+       "roles": string[]
+     }
+ 
+
+Para visualizar a documentação completa da API, após iniciar o servidor do Backend, acesse a url: [http://localhost:3333/api-docs/](http://localhost:3333/api-docs/)
+ 
 
 ## Observações
 
