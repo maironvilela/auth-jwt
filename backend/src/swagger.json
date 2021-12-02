@@ -1,0 +1,281 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Auth-JWT",
+    "version": "1.0.0",
+    "contact": {
+      "email": "teste@email.com"
+    }
+  },
+  "paths": {
+    "/sessions": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "authenticate user",
+        "description": "performs user authentication",
+        "requestBody": {
+          "content":{
+            "application/json":{
+              "schema": {
+                "$ref": "#/components/schemes/sessions"               
+              }
+                        }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns token information and refresh token for API access and user permissions and authorizations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemes/sessions-200"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Return error message ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemes/sessions-401"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/refresh": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],      
+        "summary": "Refresh token",
+        "description": "Refresh token",
+        "security":[
+          {
+            "bearerAuth":[]
+          }
+        ],   
+        "requestBody": {
+          "content":{
+            "application/json":{
+              "schema": {
+                "$ref": "#/components/schemes/refresh"
+              }
+            }
+          }
+        },
+       
+        "responses": {
+          "200": {
+            "description": "Returns token information and refresh token for API access and user permissions and authorizations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemes/sessions-200"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Return error message ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemes/sessions-401"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/me": {
+      "get": {
+        "tags": [
+          "User"
+        ],      
+        "summary": "user info",
+        "description": "Return user information",
+        "security":[
+          {
+            "bearerAuth":[]
+          }
+        ],  
+   
+        "responses": {
+          "200": {
+            "description": "Returns user information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemes/me-200"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Return error message ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemes/me-401"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemes":{
+      "sessions": {
+        "properties": {
+         "email": {
+           "type": "string"
+         },
+         "password": {
+           "type": "string"
+         }
+          
+       },
+       "example": {
+         "email": "joao@email.com",
+          "password": "123456"
+        }
+     },
+     "sessions-200":{
+         "properties": {
+           "token": {
+             "type": "string"
+           },
+           "refreshToken": {
+             "type": "string"
+           },
+           "permissions": {
+             "type": "array",
+             "items": {
+               "permissions": {
+                 "type": "string"
+               }
+             }            
+           },
+           "roles": {
+             "type": "array",
+             "items": {
+               "permissions": {
+                 "type": "string"
+               }
+ 
+             }            
+           }
+            
+         },
+         "example": {
+           "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJtaXNzaW9ucyI6WyJ1c2Vycy5saXN0IiwidXNlcnMuY3JlYXRlIiwibWV0cmljcy5saXN0Il0sInJvbGVzIjpbImFkbWluaXN0cmF0b3IiXSwiaWF0IjoxNjM4NDYyMjY0LCJleHAiOjE2Mzg0NjMxNjQsInN1YiI6ImpvYW9AZW1haWwuY29tIn0.NcgtS_i8Z22D7s-KferXfzMkTwTdiH6C2UvrytI6QhI",
+           "refreshToken": "0bf4e420-0a15-492a-8d74-3d550ead9ef0",
+           "permissions": [
+             "users.list",
+             "users.create",
+             "metrics.list"
+           ],            
+           "roles": [
+             "administrator",
+             "editor"
+           ]
+          }
+     },
+     "sessions-401":{
+       "properties": {
+         "error": {
+           "type": "boolean"
+         },
+         "message": {
+           "type": "string"
+         }
+       },
+       "example": {
+         "error":"true",
+         "message": "E-mail or password incorrect"
+       }
+     },
+     "refresh": {
+       "properties": {
+        "refreshToken": {
+          "type": "string"
+        } 
+       }
+      },
+      "me-200":{
+        "properties": {
+          "email": {
+            "type": "string"
+          },       
+          "permissions": {
+            "type": "array",
+            "items": {
+              "permissions": {
+                "type": "string"
+              }
+            }            
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "permissions": {
+                "type": "string"
+              }
+
+            }            
+          }
+           
+        },
+        "example": {
+          "email": "joao@email.com",
+          "permissions": [
+            "users.list",
+            "users.create",
+            "metrics.list"
+          ],            
+          "roles": [
+            "administrator",
+            "editor"
+          ]
+         }
+      },
+      "me-401":{
+        "properties": {
+          "error": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "error":"true",
+          "code": "token.expired",
+          "message":"Token invalid"
+        }
+      }
+    },
+    "securitySchemes":{
+      "bearerAuth":{
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+       
+
+    }
+  }
+}
+ 

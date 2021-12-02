@@ -4,6 +4,8 @@ import jwt from 'jsonwebtoken'
 import decode from 'jwt-decode'
 import { generateJwtAndRefreshToken } from './auth';
 import { auth } from './config';
+import swaggerUi from 'swagger-ui-express';
+import swaggerFile from './swagger.json';
 
 import { checkRefreshTokenIsValid, users, seedUserStore, invalidateRefreshToken } from './database';
 import { CreateSessionDTO, DecodedToken } from './types';
@@ -12,6 +14,8 @@ const app = express();
 
 app.use(express.json());
 app.use(cors())
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
 
 seedUserStore();
 
@@ -45,7 +49,7 @@ function checkAuthMiddleware(request: Request, response: Response, next: NextFun
       .json({  error: true, code: 'token.expired', message: 'Token invalid.' })
   }
 }
-
+ 
 function addUserInformationToRequest(request: Request, response: Response, next: NextFunction) {
   const { authorization } = request.headers;
 
