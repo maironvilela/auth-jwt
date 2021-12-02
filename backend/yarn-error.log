@@ -1,0 +1,54 @@
+Arguments: 
+  /home/mairon/.nvm/versions/node/v16.13.0/bin/node /usr/share/yarn/bin/yarn.js add -D nodemon
+
+PATH: 
+  /home/mairon/.vscode-server/bin/ccbaa2d27e38e5afa3e5c21c1c7bef4657064247/bin:/home/mairon/.nvm/versions/node/v16.13.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Users/Mairon Vilela/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Mairon Vilela/AppData/Roaming/npm:/mnt/c/Users/Mairon Vilela/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/Mairon Vilela/AppData/Local/atom/bin
+
+Yarn version: 
+  1.22.15
+
+Node version: 
+  16.13.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/mairon/.cache/yarn/v6/npm-registry-auth-token-4.2.1-6d7b4006441918972ccd5fedcd41dc322c79b250-integrity/node_modules/registry-auth-token/.yarn-metadata.json: Unexpected end of JSON input
+      at JSON.parse (<anonymous>)
+      at /usr/share/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/share/yarn/lib/cli.js:310:30)
+      at /usr/share/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "auth-backend",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+      "dev": "tsnd --ignore-watch node_modules --respawn --transpile-only src/server.ts"
+    },
+    "devDependencies": {
+      "@types/cors": "^2.8.10",
+      "@types/express": "^4.17.11",
+      "@types/jsonwebtoken": "^8.5.1",
+      "@types/uuid": "^8.3.0",
+      "ts-node-dev": "^1.1.6",
+      "typescript": "^4.2.4"
+    },
+    "dependencies": {
+      "cors": "^2.8.5",
+      "express": "^4.17.1",
+      "jsonwebtoken": "^8.5.1",
+      "jwt-decode": "^3.1.2",
+      "uuid": "^8.3.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
